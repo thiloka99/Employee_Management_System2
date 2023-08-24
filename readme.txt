@@ -22,4 +22,4 @@ denna
  
 itapasse api image ekak upload karama eke details terminal eke pennanwa
 
- ![Screen Shot](https://github.com/thiloka99/Employee_Management_System2/blob/main/new1.PNG)
+ ![Screen Shot](https://github.com/thiloka99/Employee_Management_System2/main/new1.PNG)
