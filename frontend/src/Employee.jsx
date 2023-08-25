@@ -9,7 +9,7 @@ function Employee() {
     axios.get('http://localhost:8081/getEmployee')
     .then(res => {
       if(res.data.status === "Success"){
-        console.log(res.data.Result)
+        //console.log(res.data.Result)
         setData(res.data.Result);
       }else{
         alert("Error")
@@ -17,6 +17,18 @@ function Employee() {
     })
     .catch(err => console.log(err));
   }, [])
+
+  const handleDelete = (id) => {
+    axios.delete('http://localhost:8081/delete/'+id)
+    .then(res => {
+      if(res.data.Status === "Success"){
+        window.location.reload(true); //refresh our page
+      } else{
+        alert("Error")
+      }
+    })
+    .catch(err => console.log(err));
+  }
 
   return (
     <div className='px-5 py-3'>
@@ -49,8 +61,8 @@ function Employee() {
               <td>{employee.address}</td>
               <td>{employee.salary}</td>
               <td>
-                <button>edit</button>
-                <button>delete</button>
+                <Link to={`/employeeEdit/` +employee.id} className='btn btn-primary btn-sm me-2'>edit</Link>
+                <button onClick={e => handleDelete(employee.id)} className='btn btn-danger'>delete</button>
               </td>
             </tr>
           })}
